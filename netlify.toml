@@ -1,0 +1,13 @@
+[build]
+  # Carpeta donde está tu HTML
+  publish = "."
+  
+  # Carpeta de las funciones serverless
+  functions = "netlify/functions"
+
+[dev]
+  # Puerto local
+  port = 8888
+  
+  # Auto-abrir navegador
+  autoLaunch = true

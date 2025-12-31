@@ -1,0 +1,510 @@
+/* ==================== RESET BÁSICO ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  line-height: 1.6;
+  color: #5a5a5a; /* Texto más suave */
+  background: #f9f9f9; /* Blanco roto */
+}
+
+/* ==================== BARRA DE NAVEGACIÓN ==================== */
+.barra-navegacion {
+  position: absolute; /* Se queda fija arriba al hacer scroll */
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Siempre encima de todo */
+  padding: 1rem 0;
+}
+
+.contenedor-navegacion {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+  align-items: center;
+}
+
+.imagen-logo {
+  height: 70px; /* Tamaño del logo - ajusta este número */
+  width: 70px; /* Mantiene el logo cuadrado */
+}
+
+.menu-navegacion {
+  display: flex;
+  gap: 2rem; /* Espacio entre enlaces */
+  list-style: none; /* Quita los puntos de la lista */
+}
+
+.menu-navegacion a {
+  text-decoration: none; /* Quita el subrayado */
+  color: #5a5a5a;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: color 0.3s; /* Transición suave al cambiar color */
+}
+
+.menu-navegacion a:hover {
+  color: #b4a5d3; /* Morado pastel al pasar el mouse */
+}
+
+.menu-navegacion a.activo {
+  color: #b4a5d3; /* Marca la página actual */
+}
+
+/* ==================== SECCIÓN HERO (PRINCIPAL) ==================== */
+.seccion-hero {
+  margin-top: 80px; /* Espacio para la navegación fija */
+  min-height: 600px;
+  background: linear-gradient(
+    135deg,
+    #d4c5e2 0%,
+    #e8c4d8 100%
+  ); /* Gradiente lavanda-rosa pastel */
+  color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.contenedor-hero {
+  max-width: 800px;
+}
+
+.titulo-principal {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra en el texto */
+}
+
+.subtitulo-principal {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.boton-principal {
+  background: white;
+  color: #b4a5d3;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border: 2px solid #b4a5d3;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 4px 15px rgba(180, 165, 211, 0.3);
+}
+
+.boton-principal:hover {
+  transform: translateY(-3px); /* Se eleva al pasar el mouse */
+  box-shadow: 0 6px 20px rgba(180, 165, 211, 0.4);
+  background: #b4a5d3;
+  color: white;
+}
+
+/* ==================== CONTENEDORES GENERALES ==================== */
+.contenedor-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.titulo-seccion {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #5a5a5a;
+  text-align: center;
+}
+
+.descripcion-seccion {
+  text-align: center;
+  color: #8a8a8a;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+/* ==================== SECCIÓN SOBRE MÍ ==================== */
+.seccion-sobre-mi {
+  background: white;
+}
+
+.caja-contenido {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Foto de perfil */
+.contenedor-foto-perfil {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Circular */
+  object-fit: cover;
+  object-view-box: inset(11%);
+  border: 5px solid #b4a5d3; /* Morado pastel */
+  box-shadow: 0 4px 15px rgba(180, 165, 211, 0.3);
+}
+
+.parrafo-contenido {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #6a6a6a;
+  margin-bottom: 1.5rem;
+}
+
+/* Redes sociales como círculos pequeños */
+.redes-circulares {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem;
+  flex-wrap: wrap;
+}
+
+.circulo-red {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #b4a5d3; /* Morado pastel */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(180, 165, 211, 0.3);
+}
+
+.circulo-red:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: #9b8fc9; /* Morado pastel más oscuro */
+  box-shadow: 0 4px 15px rgba(155, 143, 201, 0.4);
+}
+
+/* ==================== SECCIÓN GALERÍA MINI ==================== */
+.seccion-galeria-mini {
+  background: #f9f9f9;
+}
+
+.grid-imagenes {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Grid responsive */
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tarjeta-imagen {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden; /* Para que la imagen no se salga */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-imagen:hover {
+  transform: translateY(-8px); /* Se eleva al pasar el mouse */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-galeria {
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* Cubre el espacio sin deformar */
+  display: block;
+}
+
+.contenedor-boton-centrado {
+  text-align: center;
+}
+
+.boton-secundario {
+  background: #b4a5d3; /* Morado pastel */
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 4px 15px rgba(180, 165, 211, 0.3);
+}
+
+.boton-secundario:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(180, 165, 211, 0.4);
+  background: #9b8fc9; /* Más oscuro al hover */
+}
+
+/* ==================== SECCIÓN EVENTOS ==================== */
+.seccion-eventos {
+  background: white;
+}
+
+.grid-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tarjeta-evento {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.tarjeta-evento:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-color: #b4a5d3;
+}
+
+.etiqueta-evento {
+  display: inline-block;
+  background: #b4a5d3; /* Morado pastel */
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.etiqueta-vending {
+  background: #e8c4d8; /* Rosa pastel */
+}
+
+.nombre-evento {
+  font-size: 1.8rem;
+  color: #5a5a5a;
+  margin-bottom: 1rem;
+}
+
+.ubicacion-evento,
+.fecha-evento {
+  color: #8a8a8a;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.ubicacion-evento i,
+.fecha-evento i {
+  color: #b4a5d3;
+  margin-right: 0.5rem;
+}
+
+.texto-centrado {
+  text-align: center;
+  color: #8a8a8a;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.hora-evento,
+.dias-asistencia {
+  color: #8a8a8a;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.hora-evento i,
+.dias-asistencia i {
+  color: #b4a5d3;
+  margin-right: 0.5rem;
+}
+
+/* ==================== FOOTER MEJORADO ==================== */
+.pie-pagina {
+  background: linear-gradient(
+    135deg,
+    #6a6a6a 0%,
+    #5a5a5a 100%
+  ); /* Gris suave */
+  color: white;
+  padding: 3rem 2rem 1.5rem;
+}
+
+.contenedor-footer-mejorado {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-principal {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Logo y descripción del footer */
+.footer-marca {
+  max-width: 400px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #b4a5d3; /* Morado pastel */
+}
+
+.footer-descripcion {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Columnas del footer */
+.footer-columna {
+  min-width: 150px;
+}
+
+.titulo-footer {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #e8c4d8; /* Rosa pastel */
+  font-weight: 600;
+}
+
+.lista-footer {
+  list-style: none;
+}
+
+.lista-footer li {
+  margin-bottom: 0.7rem;
+}
+
+.lista-footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s, padding-left 0.3s;
+  display: inline-block;
+}
+
+.lista-footer a:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.lista-footer a i {
+  margin-right: 0.5rem;
+  color: #b4a5d3; /* Morado pastel */
+}
+
+/* Separador */
+.footer-separador {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+/* Parte inferior del footer */
+.footer-inferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+/* Iconos de redes en el footer */
+.footer-redes {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-redes a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.footer-redes a:hover {
+  background: #b4a5d3; /* Morado pastel */
+  transform: translateY(-3px);
+}
+
+/* Responsive del footer */
+@media (max-width: 768px) {
+  .footer-principal {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-inferior {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ==================== RESPONSIVE (MÓVILES) ==================== */
+@media (max-width: 768px) {
+  .titulo-principal {
+    font-size: 2.5rem; /* Más pequeño en móviles */
+  }
+
+  .subtitulo-principal {
+    font-size: 1.2rem;
+  }
+
+  .titulo-seccion {
+    font-size: 2rem;
+  }
+
+  .menu-navegacion {
+    gap: 1rem;
+  }
+
+  .contenedor-contenido {
+    padding: 3rem 1.5rem;
+  }
+
+  .caja-contenido {
+    padding: 2rem;
+  }
+}
