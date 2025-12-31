@@ -33,6 +33,47 @@ function formatearRangoFechas(fechaInicio, fechaFin) {
   return `${formatearFecha(fechaInicio)} - ${formatearFecha(fechaFin)}`;
 }
 
+// Función para obtener la clase CSS y texto del estado de asistencia
+function obtenerEstadoAsistencia(estado) {
+  if (!estado) return null;
+
+  const estadosConfig = {
+    confirmada: {
+      clase: "asistencia-confirmada",
+      icono: "fa-solid fa-check",
+      texto: "Asistiendo",
+    },
+    si: {
+      clase: "asistencia-confirmada",
+      icono: "fa-solid fa-check",
+      texto: "Asistiendo",
+    },
+    no: {
+      clase: "asistencia-no",
+      icono: "fa-solid fa-xmark",
+      texto: "No asistiré",
+    },
+    pendiente: {
+      clase: "asistencia-pendiente",
+      icono: "fa-solid fa-clock",
+      texto: "Pendiente",
+    },
+    "n-a": {
+      clase: "asistencia-na",
+      icono: "fa-solid fa-minus",
+      texto: "N/A",
+    },
+    na: {
+      clase: "asistencia-na",
+      icono: "fa-solid fa-minus",
+      texto: "N/A",
+    },
+  };
+
+  const estadoNormalizado = estado.toLowerCase().trim();
+  return estadosConfig[estadoNormalizado] || null;
+}
+
 // Función para crear HTML de una tarjeta de evento
 function crearTarjetaEvento(evento) {
   const {
@@ -43,29 +84,58 @@ function crearTarjetaEvento(evento) {
     hora_evento,
     dias_asistencia,
     tipo_participacion,
+    estado_asistencia,
   } = evento;
 
-  // Determinar clase CSS de la etiqueta
-  const claseEtiqueta =
-    tipo_participacion === "Vendiendo"
-      ? "etiqueta-evento etiqueta-vending"
-      : "etiqueta-evento";
+  // Iniciar HTML de la tarjeta
+  let html = `<div class="tarjeta-evento">`;
 
-  // Formatear fecha
-  const fechaTexto = formatearRangoFechas(fecha_inicio, fecha_fin);
+  // Contenedor de etiquetas (tipo de participación y estado de asistencia)
+  let etiquetasHTML = "";
 
-  // Construir HTML
-  let html = `
-    <div class="tarjeta-evento">
-      <div class="${claseEtiqueta}">${tipo_participacion}</div>
-      <h3 class="nombre-evento">${nombre}</h3>
+  // Añadir etiqueta de tipo de participación si existe
+  if (tipo_participacion) {
+    const claseEtiqueta =
+      tipo_participacion.toLowerCase() === "vendiendo"
+        ? "etiqueta-evento etiqueta-vending"
+        : "etiqueta-evento";
+    etiquetasHTML += `<div class="${claseEtiqueta}">${tipo_participacion}</div>`;
+  }
+
+  // Añadir etiqueta de estado de asistencia si existe
+  const estadoConfig = obtenerEstadoAsistencia(estado_asistencia);
+  if (estadoConfig) {
+    etiquetasHTML += `<div class="etiqueta-asistencia ${estadoConfig.clase}">
+      <i class="${estadoConfig.icono}"></i> ${estadoConfig.texto}
+    </div>`;
+  }
+
+  // Si hay al menos una etiqueta, añadir el contenedor
+  if (etiquetasHTML) {
+    html += `<div class="contenedor-etiquetas">${etiquetasHTML}</div>`;
+  }
+
+  // Añadir nombre del evento (siempre debe existir)
+  html += `<h3 class="nombre-evento">${nombre}</h3>`;
+
+  // Añadir ubicación si existe
+  if (ubicacion) {
+    html += `
       <p class="ubicacion-evento">
         <i class="fa-solid fa-location-dot"></i> ${ubicacion}
       </p>
+    `;
+  }
+
+  // Añadir fecha si existe
+  if (fecha_inicio) {
+    const fechaTexto = formatearRangoFechas(fecha_inicio, fecha_fin);
+    html += `
       <p class="fecha-evento">
         <i class="fa-solid fa-calendar"></i> ${fechaTexto}
       </p>
-  `;
+    `;
+  }
 
   // Añadir hora si existe
   if (hora_evento) {
