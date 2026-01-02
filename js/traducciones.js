@@ -100,6 +100,7 @@ const traducciones = {
     "form.telegram": "Tu usuario de Telegram",
     "form.otro": "¿Dónde y cuál es tu usuario?",
     "form.otro.placeholder": "Ej: Twitter - @usuario",
+    "form.otro.opcion": "Otro",
     "form.nsfw": "Contenido NSFW",
     "form.nsfw.descripcion":
       "Si tu comisión incluye contenido adulto, marca esta casilla. Se añadirá un cargo adicional de 5€ (EUR) o más según la complejidad del arte. Esto se discutira personalmente, no te preocupes.",
@@ -214,6 +215,7 @@ const traducciones = {
     "form.telegram": "Your Telegram username",
     "form.otro": "Where and what's your username?",
     "form.otro.placeholder": "E.g.: Twitter - @username",
+    "form.otro.opcion": "Other",
     "form.nsfw": "NSFW Content",
     "form.nsfw.descripcion":
       "If your commission includes adult content, check this box. An additional fee of €5 (EUR) or more will be added depending on the complexity of the art. This will be discussed personally, don't worry.",

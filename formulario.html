@@ -54,12 +54,17 @@
       <div class="contenedor-formulario">
         <!-- Guía y recomendaciones -->
         <div class="guia-texto">
-          <h3><i class="fas fa-info-circle"></i> Antes de Continuar</h3>
+          <h3>
+            <i class="fas fa-info-circle"></i>
+            <span data-i18n="form.guia.titulo">Antes de Continuar</span>
+          </h3>
           <p>
-            ¿Prefieres un enfoque más personal? ¡Contáctame directamente! Estoy
-            disponible en
+            <span data-i18n="form.guia.intro"
+              >¿Prefieres un enfoque más personal? ¡Contáctame directamente!
+              Estoy disponible en</span
+            >
             <a href="https://t.me/angiidoggo" target="_blank">Telegram</a>
-            o en
+            <span data-i18n="form.guia.o">o en</span>
             <a
               href="https://discord.com/users/893928773211283526"
               target="_blank"
@@ -67,28 +72,33 @@
             >.
           </p>
           <p>
-            <strong
+            <strong data-i18n="form.guia.trello"
               >Te recomiendo revisar mi cola de trabajos antes de
               encargar:</strong
             ><br />
             <a href="https://trello.com/b/2iZuDFfy/comms-panel" target="_blank"
-              ><i class="fab fa-trello"></i> Ver Cola de Comisiones en Trello</a
+              ><i class="fab fa-trello"></i>
+              <span data-i18n="form.guia.verTrello"
+                >Ver Cola de Comisiones en Trello</span
+              ></a
             >
           </p>
           <p>
-            <strong>Por favor, ten en cuenta:</strong>
+            <strong data-i18n="form.guia.tenerEnCuenta"
+              >Por favor, ten en cuenta:</strong
+            >
           </p>
           <ul class="lista-guia">
-            <li>
+            <li data-i18n="form.guia.item1">
               Consulta mis
               <a href="Construccion.html">Términos de Servicio</a> antes de
               encargar
             </li>
-            <li>
+            <li data-i18n="form.guia.item2">
               Los precios están en EUR (Euros), moneda europea y española,
               consulta los cambios de divisa antes de realizar el pago.
             </li>
-            <li>
+            <li data-i18n="form.guia.item3">
               El pago se debe realizar al completo antes de empezar la comisión.
             </li>
           </ul>
@@ -96,7 +106,9 @@
 
         <!-- Caja del formulario -->
         <div class="caja-formulario">
-          <h2 class="titulo-formulario">Formulario de Pedido</h2>
+          <h2 class="titulo-formulario" data-i18n="form.titulo">
+            Formulario de Pedido
+          </h2>
 
           <form
             id="formulario-comision"
@@ -111,12 +123,14 @@
             <!-- Tipo de comisión -->
             <div class="grupo-campo">
               <label class="etiqueta-campo">
-                ¿Qué tipo de comisión te gustaría?<span class="campo-requerido"
-                  >*</span
-                >
+                <span data-i18n="form.tipo"
+                  >¿Qué tipo de comisión te gustaría?</span
+                ><span class="campo-requerido">*</span>
               </label>
               <select class="campo-select" name="tipo_comision" required>
-                <option value="">Seleccionar...</option>
+                <option value="" data-i18n="form.seleccionar">
+                  Seleccionar...
+                </option>
                 <option value="Icon - $25 USD">Icon - $25 USD</option>
                 <option value="Halfbody - $35 USD">Halfbody - $35 USD</option>
                 <option value="Fullbody - $50 USD">Fullbody - $50 USD</option>
@@ -132,7 +146,8 @@
             <!-- Subir archivo de referencia -->
             <div class="grupo-campo">
               <label class="etiqueta-campo">
-                Sube tu reference sheet<span class="campo-requerido">*</span>
+                <span data-i18n="form.referencia">Sube tu reference sheet</span
+                ><span class="campo-requerido">*</span>
               </label>
               <input
                 type="file"
@@ -141,20 +156,28 @@
                 accept="image/*"
                 required
               />
-              <p class="texto-ayuda">
+              <p class="texto-ayuda" data-i18n="form.referencia.ayuda">
                 Formatos permitidos: JPG, PNG, GIF, WEBP (máx. 10MB)
               </p>
             </div>
 
             <!-- Número de personajes -->
             <div class="grupo-campo">
-              <label class="etiqueta-campo"> ¿Número de personajes? </label>
+              <label class="etiqueta-campo" data-i18n="form.personajes">
+                ¿Número de personajes?
+              </label>
               <select class="campo-select" name="num_personajes">
-                <option value="1 personaje">1 personaje</option>
-                <option value="2 personajes">2 personajes</option>
-                <option value="3 personajes">3 personajes</option>
+                <option value="1 personaje" data-i18n="form.personajes.1">
+                  1 personaje
+                </option>
+                <option value="2 personajes" data-i18n="form.personajes.2">
+                  2 personajes
+                </option>
+                <option value="3 personajes" data-i18n="form.personajes.3">
+                  3 personajes
+                </option>
               </select>
-              <p class="texto-ayuda">
+              <p class="texto-ayuda" data-i18n="form.personajes.ayuda">
                 Ignora si estás encargando stickers de Telegram
               </p>
             </div>
@@ -162,13 +185,14 @@
             <!-- Descripción de la pose -->
             <div class="grupo-campo">
               <label class="etiqueta-campo">
-                Describe la pose, mood o idea<span class="campo-requerido"
-                  >*</span
-                >
+                <span data-i18n="form.descripcion"
+                  >Describe la pose, mood o idea</span
+                ><span class="campo-requerido">*</span>
               </label>
               <textarea
                 class="campo-textarea"
                 name="descripcion"
+                data-i18n-placeholder="form.descripcion.placeholder"
                 placeholder="Ej: Mi personaje sentado, sonriendo, con fondo de bosque nocturno..."
                 required
               ></textarea>
@@ -177,9 +201,9 @@
             <!-- Método de contacto -->
             <div class="grupo-campo">
               <label class="etiqueta-campo">
-                ¿Cómo prefieres que te contacte?<span class="campo-requerido"
-                  >*</span
-                >
+                <span data-i18n="form.contacto"
+                  >¿Cómo prefieres que te contacte?</span
+                ><span class="campo-requerido">*</span>
               </label>
               <select
                 class="campo-select"
@@ -187,17 +211,20 @@
                 id="metodo_contacto"
                 required
               >
-                <option value="">Seleccionar...</option>
+                <option value="" data-i18n="form.seleccionar">
+                  Seleccionar...
+                </option>
                 <option value="Discord">Discord</option>
                 <option value="Telegram">Telegram</option>
-                <option value="Otro">Otro</option>
+                <option value="Otro" data-i18n="form.otro.opcion">Otro</option>
               </select>
             </div>
 
             <!-- Campo condicional para Discord -->
             <div class="grupo-campo campo-contacto-detalle" id="campo_discord">
               <label class="etiqueta-campo">
-                Tu usuario de Discord<span class="campo-requerido">*</span>
+                <span data-i18n="form.discord">Tu usuario de Discord</span
+                ><span class="campo-requerido">*</span>
               </label>
               <input
                 type="text"
@@ -210,7 +237,8 @@
             <!-- Campo condicional para Telegram -->
             <div class="grupo-campo campo-contacto-detalle" id="campo_telegram">
               <label class="etiqueta-campo">
-                Tu usuario de Telegram<span class="campo-requerido">*</span>
+                <span data-i18n="form.telegram">Tu usuario de Telegram</span
+                ><span class="campo-requerido">*</span>
               </label>
               <input
                 type="text"
@@ -223,14 +251,14 @@
             <!-- Campo condicional para Otro -->
             <div class="grupo-campo campo-contacto-detalle" id="campo_otro">
               <label class="etiqueta-campo">
-                ¿Dónde y cuál es tu usuario?<span class="campo-requerido"
-                  >*</span
-                >
+                <span data-i18n="form.otro">¿Dónde y cuál es tu usuario?</span
+                ><span class="campo-requerido">*</span>
               </label>
               <input
                 type="text"
                 class="campo-input"
                 name="otro_contacto"
+                data-i18n-placeholder="form.otro.placeholder"
                 placeholder="Ej: Twitter - @usuario"
               />
             </div>
@@ -248,9 +276,9 @@
                 <div class="checkbox-contenido">
                   <label for="nsfw" class="etiqueta-checkbox">
                     <i class="fas fa-eye-slash icono-nsfw"></i>
-                    Contenido NSFW
+                    <span data-i18n="form.nsfw">Contenido NSFW</span>
                   </label>
-                  <p class="descripcion-nsfw">
+                  <p class="descripcion-nsfw" data-i18n="form.nsfw.descripcion">
                     Si tu comisión incluye contenido adulto, marca esta casilla.
                     Se añadirá un cargo adicional de 5€ (EUR) o más según la
                     complejidad del arte. Esto se discutira personalmente, no te
@@ -263,7 +291,7 @@
             <!-- Botón de envío -->
             <button type="submit" class="boton-enviar" id="boton-enviar">
               <i class="fas fa-paper-plane"></i>
-              Enviar Pedido
+              <span data-i18n="form.enviar">Enviar Pedido</span>
             </button>
 
             <!-- Mensaje de éxito -->
@@ -272,10 +300,16 @@
                 class="fas fa-check-circle"
                 style="font-size: 2rem; margin-bottom: 0.5rem"
               ></i>
-              <p style="margin: 0; font-weight: 600">
+              <p
+                style="margin: 0; font-weight: 600"
+                data-i18n="form.exito.titulo"
+              >
                 ¡Pedido enviado con éxito!
               </p>
-              <p style="margin: 0.5rem 0 0 0">
+              <p
+                style="margin: 0.5rem 0 0 0"
+                data-i18n="form.exito.descripcion"
+              >
                 Me pondré en contacto contigo pronto. Revisa tu método de
                 contacto.
               </p>
@@ -283,7 +317,9 @@
           </form>
 
           <p class="nota-privacidad">
-            Al enviar este formulario aceptas los
+            <span data-i18n="form.privacidad"
+              >Al enviar este formulario aceptas los</span
+            >
             <a
               href="Construccion.html"
               style="
@@ -291,8 +327,11 @@
                 text-decoration: none;
                 font-weight: 600;
               "
+              data-i18n="form.privacidad.tos"
               >Términos de Servicio</a
-            >. Tus datos solo serán usados para procesar tu comisión.
+            ><span data-i18n="form.privacidad.final"
+              >. Tus datos solo serán usados para procesar tu comisión.</span
+            >
           </p>
         </div>
       </div>
@@ -308,22 +347,34 @@
               alt="Logo AngiiDoggo"
               class="footer-logo"
             />
-            <p class="footer-descripcion">
+            <p class="footer-descripcion" data-i18n="footer.descripcion">
               Artista digital y streamer. Creando arte y compartiendo mi pasión
               con la comunidad.
             </p>
           </div>
           <div class="footer-columna">
-            <h4 class="titulo-footer">Navegación</h4>
+            <h4 class="titulo-footer" data-i18n="footer.navegacion">
+              Navegación
+            </h4>
             <ul class="lista-footer">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="comisiones.html">Comisiones</a></li>
-              <li><a href="Construccion.html">Tienda</a></li>
-              <li><a href="Construccion.html">Términos de Servicio</a></li>
+              <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+              <li>
+                <a href="comisiones.html" data-i18n="nav.comisiones"
+                  >Comisiones</a
+                >
+              </li>
+              <li>
+                <a href="Construccion.html" data-i18n="nav.tienda">Tienda</a>
+              </li>
+              <li>
+                <a href="Construccion.html" data-i18n="footer.tos"
+                  >Términos de Servicio</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-columna">
-            <h4 class="titulo-footer">Contacto</h4>
+            <h4 class="titulo-footer" data-i18n="footer.contacto">Contacto</h4>
             <ul class="lista-footer">
               <li>
                 <a href="mailto:angiidoggo.business@gmail.com">
@@ -349,7 +400,7 @@
         </div>
         <div class="footer-separador"></div>
         <div class="footer-inferior">
-          <p class="footer-copyright">
+          <p class="footer-copyright" data-i18n="footer.copyright">
             © 2025 AngiiDoggo. Todos los derechos reservados.
           </p>
           <div class="footer-redes">
