@@ -14,6 +14,118 @@ body {
   flex-direction: column;
 }
 
+/* BOTÓN DE IDIOMA - Con colores de banderas */
+.boton-idioma {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  border: 3px solid white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  z-index: 9998;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.boton-idioma.bandera-uk {
+  background: linear-gradient(
+    135deg,
+    #012169 0%,
+    #012169 40%,
+    #c8102e 60%,
+    #c8102e 100%
+  );
+  box-shadow: 0 4px 15px rgba(1, 33, 105, 0.5);
+}
+
+.boton-idioma.bandera-uk:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(1, 33, 105, 0.7);
+}
+
+.boton-idioma.bandera-es {
+  background: linear-gradient(
+    180deg,
+    #aa151b 0%,
+    #aa151b 25%,
+    #f1bf00 25%,
+    #f1bf00 75%,
+    #aa151b 75%,
+    #aa151b 100%
+  );
+  box-shadow: 0 4px 15px rgba(170, 21, 27, 0.5);
+}
+
+.boton-idioma.bandera-es:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(170, 21, 27, 0.7);
+}
+
+/* Contenedor del botón de idioma con popup */
+.contenedor-idioma {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9998;
+}
+
+.contenedor-idioma .boton-idioma {
+  position: relative;
+}
+
+/* Popup del idioma */
+.popup-idioma {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: white;
+  padding: 10px 30px 10px 14px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.popup-idioma::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 18px;
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: #1a202c transparent transparent transparent;
+}
+
+.popup-idioma.mostrar {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.popup-cerrar {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 5px;
+  line-height: 1;
+}
+
+.popup-cerrar:hover {
+  color: white;
+}
+
 /* Contenedor principal */
 .contenedor-construccion {
   flex: 1;

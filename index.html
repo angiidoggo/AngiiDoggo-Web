@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AngiiDoggo - Artista Digital Furry</title>
+    <title>AngiiDoggo - Inicio</title>
+    <link rel="icon" href="img/LogoWeb.png" />
 
     <!-- Enlace a Font Awesome para iconos -->
     <link
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- ==================== BARRA DE NAVEGACIÓN ==================== -->
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="barra-navegacion">
       <div class="contenedor-navegacion">
         <!-- Logo -->
@@ -29,31 +30,41 @@
 
         <!-- Enlaces de navegación -->
         <ul class="menu-navegacion">
-          <li><a href="index.html" class="activo">Inicio</a></li>
-          <li><a href="Construccion.html">Comisiones</a></li>
-          <li><a href="Construccion.html">Tienda</a></li>
-          <li><a href="Construccion.html">TOS</a></li>
+          <li>
+            <a href="index.html" class="activo" data-i18n="nav.inicio"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a href="comisiones.html" data-i18n="nav.comisiones">Comisiones</a>
+          </li>
+          <li><a href="Construccion.html" data-i18n="nav.tienda">Tienda</a></li>
+          <li><a href="Construccion.html" data-i18n="nav.tos">TOS</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- ==================== SECCIÓN HERO (PRINCIPAL) ==================== -->
+    <!-- SECCIÓN HERO (PRINCIPAL) -->
     <section class="seccion-hero">
       <div class="contenedor-hero">
-        <h1 class="titulo-principal">¡Hola! Soy Angi</h1>
-        <p class="subtitulo-principal">
+        <h1 class="titulo-principal" data-i18n="hero.titulo">
+          ¡Hola! Soy Angi
+        </h1>
+        <p class="subtitulo-principal" data-i18n="hero.subtitulo">
           Artista Digital, Streamer & Estudiante de Desarrollo Web!
         </p>
 
         <!-- Botón principal para ver comisiones -->
-        <a href="Construccion.html" class="boton-principal">Comisiones</a>
+        <a href="comisiones.html" class="boton-principal" data-i18n="hero.boton"
+          >Comisiones</a
+        >
       </div>
     </section>
 
-    <!-- ==================== SECCIÓN SOBRE MÍ ==================== -->
+    <!-- SECCIÓN SOBRE MÍ -->
     <section class="seccion-sobre-mi">
       <div class="contenedor-contenido">
-        <h2 class="titulo-seccion">Sobre Mí</h2>
+        <h2 class="titulo-seccion" data-i18n="about.titulo">Sobre Mí</h2>
 
         <div class="caja-contenido">
           <!-- Foto de perfil -->
@@ -115,23 +126,15 @@
             >
               <i class="fa-brands fa-telegram"></i>
             </a>
-            <a
-              href="https://www.youtube.com/@notwiss"
-              class="circulo-red"
-              target="_blank"
-              title="YouTube"
-            >
-              <i class="fa-brands fa-youtube"></i>
-            </a>
           </div>
 
-          <p class="parrafo-contenido">
+          <p class="parrafo-contenido" data-i18n="about.parrafo1">
             ¡Hola! Soy <strong>Angi</strong>, un furro creador de contenido en
             <strong>Twitch</strong> y <strong>TikTok</strong>. También soy
             artista digital y diseñador web! Tengo 18 años y vivo en España.
           </p>
 
-          <p class="parrafo-contenido">
+          <p class="parrafo-contenido" data-i18n="about.parrafo2">
             Me encanta todo lo que hago:
             <strong
               >dibujar, charlar, jugar, salir, acudir a meets o eventos</strong
@@ -139,7 +142,7 @@
             sociales, creando poco a poco una gran comunidad para todos!
           </p>
 
-          <p class="parrafo-contenido">
+          <p class="parrafo-contenido" data-i18n="about.parrafo3">
             Mi objetivo es compartir todo lo que pueda de mí: mis streams, mi
             arte, mis capacidades y mis locuras. ¡Espero que disfrutes conmigo y
             de todo lo que tengo para ofrecer!
@@ -148,11 +151,11 @@
       </div>
     </section>
 
-    <!-- ==================== SECCIÓN GALERÍA MINI ==================== -->
+    <!-- SECCIÓN GALERÍA MINI -->
     <section class="seccion-galeria-mini">
       <div class="contenedor-contenido">
-        <h2 class="titulo-seccion">Mi Arte</h2>
-        <p class="descripcion-seccion">
+        <h2 class="titulo-seccion" data-i18n="gallery.titulo">Mi Arte</h2>
+        <p class="descripcion-seccion" data-i18n="gallery.descripcion">
           Algunas de mis comisiones o trabajos...
         </p>
 
@@ -160,28 +163,28 @@
         <div class="grid-imagenes">
           <div class="tarjeta-imagen">
             <img
-              src="img/StickerZoru.png"
+              src="img/PreviewTuffle.png"
               alt="Arte 1"
               class="imagen-galeria"
             />
           </div>
           <div class="tarjeta-imagen">
             <img
-              src="img/PreviewIcon.png"
+              src="img/StickerZoru.png"
               alt="Arte 2"
               class="imagen-galeria"
             />
           </div>
           <div class="tarjeta-imagen">
             <img
-              src="img/PreviewMidBody.png"
+              src="img/PreviewRecolor.png"
               alt="Arte 3"
               class="imagen-galeria"
             />
           </div>
           <div class="tarjeta-imagen">
             <img
-              src="img/PreviewSticker.png"
+              src="img/PreviewAwakte.png"
               alt="Arte 4"
               class="imagen-galeria"
             />
@@ -190,33 +193,40 @@
 
         <!-- Botón para ver todas las comisiones -->
         <div class="contenedor-boton-centrado">
-          <a href="Construccion.html" class="boton-secundario"
+          <a
+            href="comisiones.html#tipos-comision"
+            class="boton-secundario"
+            data-i18n="gallery.boton"
             >Ver Todas Mis Comisiones</a
           >
         </div>
       </div>
     </section>
 
-    <!-- ==================== SECCIÓN EVENTOS ==================== -->
+    <!-- SECCIÓN EVENTOS -->
     <section class="seccion-eventos">
       <div class="contenedor-contenido">
-        <h2 class="titulo-seccion">📅 Próximos Eventos</h2>
-        <p class="descripcion-seccion">
+        <h2 class="titulo-seccion" data-i18n="events.titulo">
+          📅 Próximos Eventos
+        </h2>
+        <p class="descripcion-seccion" data-i18n="events.descripcion">
           Convenciones y eventos a los que próximamente asistiré...
         </p>
 
         <!-- Grid de eventos (dinámico) -->
         <div class="grid-eventos" id="grid-eventos">
-          <p class="texto-centrado cargando">Cargando eventos...</p>
+          <p class="texto-centrado cargando" data-i18n="events.cargando">
+            Cargando eventos...
+          </p>
         </div>
 
-        <p class="texto-centrado" id="texto-extra">
+        <p class="texto-centrado" id="texto-extra" data-i18n="events.extra">
           ¿Vas a asistir a alguna? ¡Avísame por Discord o Telegram!
         </p>
       </div>
     </section>
 
-    <!-- ==================== FOOTER (PIE DE PÁGINA) ==================== -->
+    <!-- FOOTER (PIE DE PÁGINA) -->
     <footer class="pie-pagina">
       <div class="contenedor-footer">
         <!-- Sección principal del footer -->
@@ -228,7 +238,7 @@
               alt="Logo AngiiDoggo"
               class="footer-logo"
             />
-            <p class="footer-descripcion">
+            <p class="footer-descripcion" data-i18n="footer.descripcion">
               Artista digital y streamer!. Creando arte y compartiendo mi pasión
               con la comunidad.
             </p>
@@ -236,18 +246,30 @@
 
           <!-- Navegación rápida -->
           <div class="footer-columna">
-            <h4 class="titulo-footer">Navegación</h4>
+            <h4 class="titulo-footer" data-i18n="footer.navegacion">
+              Navegación
+            </h4>
             <ul class="lista-footer">
-              <li><a>Inicio</a></li>
-              <li><a>Comisiones</a></li>
-              <li><a>Tienda</a></li>
-              <li><a>Términos de Servicio</a></li>
+              <li><a data-i18n="nav.inicio">Inicio</a></li>
+              <li>
+                <a href="comisiones.html" data-i18n="nav.comisiones"
+                  >Comisiones</a
+                >
+              </li>
+              <li>
+                <a href="Construccion.html" data-i18n="nav.tienda">Tienda</a>
+              </li>
+              <li>
+                <a href="Construccion.html" data-i18n="footer.tos"
+                  >Términos de Servicio</a
+                >
+              </li>
             </ul>
           </div>
 
           <!-- Contacto -->
           <div class="footer-columna">
-            <h4 class="titulo-footer">Contacto</h4>
+            <h4 class="titulo-footer" data-i18n="footer.contacto">Contacto</h4>
             <ul class="lista-footer">
               <li>
                 <a href="mailto:angiidoggo.business@gmail.com">
@@ -277,7 +299,7 @@
 
         <!-- Parte inferior: Copyright y redes -->
         <div class="footer-inferior">
-          <p class="footer-copyright">
+          <p class="footer-copyright" data-i18n="footer.copyright">
             © 2025 AngiiDoggo. Todos los derechos reservados.
           </p>
 
@@ -318,5 +340,71 @@
 
     <!-- Cargar el script de eventos -->
     <script src="js/eventos.js"></script>
+
+    <!-- LIGHTBOX para ampliar imágenes -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-cerrar" id="lightbox-cerrar">&times;</span>
+      <img src="" alt="Imagen ampliada" id="lightbox-img" />
+      <p class="lightbox-hint" data-i18n="lightbox.hint">
+        Toca fuera de la imagen para cerrar
+      </p>
+    </div>
+
+    <script>
+      // Lightbox funcionalidad
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCerrar = document.getElementById("lightbox-cerrar");
+
+      // Abrir lightbox al hacer clic en imagen de la galería
+      document.addEventListener("click", function (e) {
+        const tarjetaImagen = e.target.closest(".tarjeta-imagen");
+        if (tarjetaImagen) {
+          e.preventDefault();
+          const img = tarjetaImagen.querySelector("img");
+          if (img && img.src) {
+            lightboxImg.src = img.src;
+            lightbox.classList.add("activo");
+            document.body.style.overflow = "hidden";
+          }
+        }
+      });
+
+      // Cerrar lightbox
+      function cerrarLightbox() {
+        lightbox.classList.remove("activo");
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+      }
+
+      lightboxCerrar.addEventListener("click", function (e) {
+        e.stopPropagation();
+        cerrarLightbox();
+      });
+
+      lightbox.addEventListener("click", function (e) {
+        if (
+          e.target === lightbox ||
+          e.target.classList.contains("lightbox-hint")
+        ) {
+          cerrarLightbox();
+        }
+      });
+
+      // Cerrar con tecla Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          cerrarLightbox();
+        }
+      });
+    </script>
+
+    <!-- Botón de idioma -->
+    <button class="boton-idioma" id="boton-idioma" title="Switch to English">
+      EN
+    </button>
+
+    <!-- Sistema de traducciones -->
+    <script src="js/traducciones.js"></script>
   </body>
 </html>

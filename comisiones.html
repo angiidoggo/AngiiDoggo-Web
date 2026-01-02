@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngiiDoggo - Comisiones</title>
+    <link rel="icon" href="img/LogoWeb.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/comisiones.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="barra-navegacion">
+      <div class="contenedor-navegacion">
+        <a href="index.html" class="logo-nav">
+          <img
+            src="img/LogoWeb.png"
+            alt="Logo AngiiDoggo"
+            class="imagen-logo"
+          />
+        </a>
+        <ul class="menu-navegacion">
+          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+          <li>
+            <a href="comisiones.html" class="activo" data-i18n="nav.comisiones"
+              >Comisiones</a
+            >
+          </li>
+          <li><a href="Construccion.html" data-i18n="nav.tienda">Tienda</a></li>
+          <li><a href="Construccion.html" data-i18n="nav.tos">TOS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="seccion-hero hero-comisiones">
+      <div class="contenedor-hero">
+        <h1 class="titulo-principal" data-i18n="comms.hero.titulo">
+          Mis Comisiones
+        </h1>
+        <p class="subtitulo-principal" data-i18n="comms.hero.subtitulo">
+          Arte digital personalizado para tu personaje
+        </p>
+      </div>
+    </section>
+
+    <!-- TIPOS DE COMISIÓN -->
+    <section class="seccion-tipos-comision" id="tipos-comision">
+      <div class="contenedor-contenido">
+        <h2 class="titulo-seccion" data-i18n="comms.tipos.titulo">
+          ¿Qué Puedo Hacer Por Ti?
+        </h2>
+        <p class="descripcion-seccion" data-i18n="comms.tipos.descripcion">
+          Elige el tipo de comisión que mejor se adapte a lo que buscas
+        </p>
+
+        <!-- Grid dinámico -->
+        <div class="grid-comisiones" id="grid-comisiones">
+          <p class="texto-centrado" data-i18n="comms.cargando">
+            Cargando comisiones...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Antes de cerrar </body> -->
+    <script src="js/comisiones.js"></script>
+
+    <!-- LLAMADA A LA ACCIÓN -->
+    <section class="seccion-cta" id="formulario">
+      <div class="contenedor-cta">
+        <h2 data-i18n="comms.cta.titulo">¿Listo Para Tu Comisión?</h2>
+        <p data-i18n="comms.cta.descripcion">
+          Completa el formulario con los detalles de tu comisión y me pondré en
+          contacto contigo lo antes posible
+        </p>
+        <a href="formulario.html" class="boton-formulario">
+          <i class="fas fa-edit"></i>
+          <span data-i18n="comms.cta.boton">Rellenar Formulario</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX para ampliar imágenes -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-cerrar" id="lightbox-cerrar">&times;</span>
+      <img src="" alt="Imagen ampliada" id="lightbox-img" />
+      <p class="lightbox-hint" data-i18n="lightbox.hint">
+        Toca fuera de la imagen para cerrar
+      </p>
+    </div>
+
+    <script>
+      // Lightbox funcionalidad
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCerrar = document.getElementById("lightbox-cerrar");
+
+      // Abrir lightbox al hacer clic en imagen
+      document.addEventListener("click", function (e) {
+        const imagenComision = e.target.closest(".imagen-comision");
+        if (imagenComision) {
+          e.preventDefault();
+          e.stopPropagation();
+          const img = imagenComision.querySelector("img");
+          if (img && img.src) {
+            console.log("Abriendo lightbox con imagen:", img.src);
+            lightboxImg.src = img.src;
+            lightbox.classList.add("activo");
+            document.body.style.overflow = "hidden";
+          }
+        }
+      });
+
+      // Cerrar lightbox
+      function cerrarLightbox() {
+        lightbox.classList.remove("activo");
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+      }
+
+      lightboxCerrar.addEventListener("click", function (e) {
+        e.stopPropagation();
+        cerrarLightbox();
+      });
+
+      lightbox.addEventListener("click", function (e) {
+        if (
+          e.target === lightbox ||
+          e.target.classList.contains("lightbox-hint")
+        ) {
+          cerrarLightbox();
+        }
+      });
+
+      // Cerrar con tecla Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          cerrarLightbox();
+        }
+      });
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="pie-pagina">
+      <div class="contenedor-footer">
+        <div class="footer-principal">
+          <div class="footer-marca">
+            <img
+              src="img/LogoWeb.png"
+              alt="Logo AngiiDoggo"
+              class="footer-logo"
+            />
+            <p class="footer-descripcion" data-i18n="footer.descripcion">
+              Artista digital y streamer!. Creando arte y compartiendo mi pasión
+              con la comunidad.
+            </p>
+          </div>
+          <div class="footer-columna">
+            <h4 class="titulo-footer" data-i18n="footer.navegacion">
+              Navegación
+            </h4>
+            <ul class="lista-footer">
+              <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+              <li><a data-i18n="nav.comisiones">Comisiones</a></li>
+              <li>
+                <a href="Construccion.html" data-i18n="nav.tienda">Tienda</a>
+              </li>
+              <li>
+                <a href="Construccion.html" data-i18n="footer.tos"
+                  >Términos de Servicio</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-columna">
+            <h4 class="titulo-footer" data-i18n="footer.contacto">Contacto</h4>
+            <ul class="lista-footer">
+              <li>
+                <a href="mailto:angiidoggo.business@gmail.com">
+                  <i class="fa-solid fa-envelope"></i>
+                  angiidoggo.business@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.com/users/893928773211283526"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/angiidoggo" target="_blank">
+                  <i class="fa-brands fa-telegram"></i> Telegram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-separador"></div>
+        <div class="footer-inferior">
+          <p class="footer-copyright" data-i18n="footer.copyright">
+            © 2025 AngiiDoggo. Todos los derechos reservados.
+          </p>
+          <div class="footer-redes">
+            <a
+              href="https://twitch.com/angiidoggo"
+              target="_blank"
+              title="Twitch"
+            >
+              <i class="fa-brands fa-twitch"></i>
+            </a>
+            <a
+              href="https://twitter.com/angiidoggo"
+              target="_blank"
+              title="Twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/angiidoggo/"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@angiidoggo"
+              target="_blank"
+              title="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botón de idioma -->
+    <button class="boton-idioma" id="boton-idioma" title="Switch to English">
+      EN
+    </button>
+
+    <!-- Sistema de traducciones -->
+    <script src="js/traducciones.js"></script>
+  </body>
+</html>

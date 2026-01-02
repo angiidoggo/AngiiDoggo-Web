@@ -1,4 +1,4 @@
-/* ==================== RESET BÁSICO ==================== */
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,114 @@ body {
   background: white;
 }
 
-/* ==================== BARRA DE NAVEGACIÓN ==================== */
+/* BOTÓN DE IDIOMA - Con colores de banderas */
+.boton-idioma {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  border: 3px solid white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  z-index: 9998;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Cuando muestra EN (cambiar a inglés) - Colores UK */
+.boton-idioma.bandera-uk {
+  background: linear-gradient(135deg, #012169 0%, #012169 40%, #C8102E 60%, #C8102E 100%);
+  box-shadow: 0 4px 15px rgba(1, 33, 105, 0.5);
+}
+
+.boton-idioma.bandera-uk:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(1, 33, 105, 0.7);
+}
+
+/* Cuando muestra ES (cambiar a español) - Colores España */
+.boton-idioma.bandera-es {
+  background: linear-gradient(180deg, #AA151B 0%, #AA151B 25%, #F1BF00 25%, #F1BF00 75%, #AA151B 75%, #AA151B 100%);
+  box-shadow: 0 4px 15px rgba(170, 21, 27, 0.5);
+}
+
+.boton-idioma.bandera-es:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 25px rgba(170, 21, 27, 0.7);
+}
+
+/* Contenedor del botón de idioma con popup */
+.contenedor-idioma {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9998;
+}
+
+.contenedor-idioma .boton-idioma {
+  position: relative;
+  bottom: auto;
+  right: auto;
+}
+
+/* Popup del idioma - pequeño mensaje con X para cerrar */
+.popup-idioma {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: white;
+  padding: 10px 30px 10px 14px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.popup-idioma::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 18px;
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: #1a202c transparent transparent transparent;
+}
+
+/* Popup visible */
+.popup-idioma.mostrar {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Botón de cerrar popup */
+.popup-cerrar {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 5px;
+  line-height: 1;
+}
+
+.popup-cerrar:hover {
+  color: white;
+}
+
+/* BARRA DE NAVEGACIÓN */
 .barra-navegacion {
   position: absolute;
   top: 0;
@@ -58,7 +165,7 @@ body {
   color: rgba(145, 255, 213, 0.95);
 }
 
-/* ==================== SECCIÓN HERO (PRINCIPAL) ==================== */
+/* SECCIÓN HERO (PRINCIPAL) */
 .seccion-hero {
   margin-top: 80px;
   min-height: 600px;
@@ -107,7 +214,7 @@ body {
   box-shadow: 0 6px 25px rgba(200, 184, 232, 0.6);
 }
 
-/* ==================== CONTENEDORES GENERALES ==================== */
+/* CONTENEDORES GENERALES */
 .contenedor-contenido {
   max-width: 1200px;
   margin: 0 auto;
@@ -129,7 +236,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ==================== SECCIÓN SOBRE MÍ ==================== */
+/* SECCIÓN SOBRE MÍ */
 .seccion-sobre-mi {
   background: white;
 }
@@ -157,6 +264,13 @@ body {
   object-view-box: inset(11%);
   border: 5px solid rgba(3, 49, 53, 0.95);
   box-shadow: 0 4px 15px rgba(180, 165, 211, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.foto-perfil:hover {
+  transform: translateY(-5px) scale(1.1);
+  border-color: rgba(0, 142, 155, 0.95);
+  box-shadow: 0 4px 15px rgba(75, 212, 224, 0.95);
 }
 
 .parrafo-contenido {
@@ -196,7 +310,7 @@ body {
   box-shadow: 0 4px 15px rgba(75, 212, 224, 0.95);
 }
 
-/* ==================== SECCIÓN GALERÍA MINI ==================== */
+/* SECCIÓN GALERÍA MINI */
 .seccion-galeria-mini {
   background: #f9f9f9;
 }
@@ -214,11 +328,34 @@ body {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
 }
 
 .tarjeta-imagen:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icono de ampliar en hover */
+.tarjeta-imagen::after {
+  content: "\f00e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tarjeta-imagen:hover::after {
+  opacity: 1;
 }
 
 .imagen-galeria {
@@ -252,7 +389,7 @@ body {
   box-shadow: 0 6px 25px rgba(200, 184, 232, 0.6);
 }
 
-/* ==================== SECCIÓN EVENTOS ==================== */
+/* SECCIÓN EVENTOS */
 .seccion-eventos {
   background: white;
 }
@@ -356,6 +493,26 @@ body {
   margin-right: 0.5rem;
 }
 
+/* Enlace de ubicación a Google Maps */
+.enlace-ubicacion {
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.enlace-ubicacion:hover {
+  color: #b4a5d3;
+}
+
+.enlace-ubicacion .icono-externo {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-left: 0.3rem;
+}
+
 .texto-centrado {
   text-align: center;
   color: #8a8a8a;
@@ -376,7 +533,7 @@ body {
   margin-right: 0.5rem;
 }
 
-/* ==================== FOOTER MEJORADO ==================== */
+/* FOOTER */
 .pie-pagina {
   background: rgba(3, 49, 53, 0.95);
   color: white;
@@ -508,7 +665,7 @@ body {
   }
 }
 
-/* ==================== RESPONSIVE (MÓVILES) ==================== */
+/* RESPONSIVE (TABLETS) */
 @media (max-width: 768px) {
   .titulo-principal {
     font-size: 2.5rem;
@@ -537,4 +694,185 @@ body {
   .grid-eventos {
     grid-template-columns: 1fr;
   }
+}
+
+/* RESPONSIVE (MÓVILES PEQUEÑOS) */
+@media (max-width: 480px) {
+  /* Navbar móvil */
+  .barra-navegacion {
+    padding: 0.5rem 0;
+  }
+
+  .contenedor-navegacion {
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .imagen-logo {
+    height: 45px;
+    width: 45px;
+  }
+
+  .menu-navegacion {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .menu-navegacion a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  /* Hero móvil */
+  .seccion-hero {
+    margin-top: 100px;
+    min-height: 400px;
+    padding: 2rem 1rem;
+  }
+
+  .titulo-principal {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .subtitulo-principal {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .boton-principal {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Secciones móvil */
+  .titulo-seccion {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .descripcion-seccion {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .contenedor-contenido {
+    padding: 2rem 1rem;
+  }
+
+  .caja-contenido {
+    padding: 1.5rem 1rem;
+  }
+
+  .parrafo-contenido {
+    font-size: 1rem;
+  }
+
+  /* Galería móvil */
+  .grid-imagenes {
+    gap: 1rem;
+  }
+
+  .imagen-galeria {
+    height: 200px;
+  }
+
+  .boton-secundario {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Eventos móvil */
+  .tarjeta-evento {
+    padding: 1.5rem 1rem;
+  }
+
+  .nombre-evento {
+    font-size: 1.4rem;
+  }
+
+  /* Footer móvil */
+  .pie-pagina {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-principal {
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-descripcion {
+    font-size: 0.9rem;
+  }
+
+  .footer-redes a {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  /* Icono lupa visible en móvil */
+  .tarjeta-imagen::after {
+    opacity: 1;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lightbox.activo {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+  z-index: 10000;
+}
+
+.lightbox-cerrar:hover {
+  color: #f5c4e0;
+  transform: scale(1.1);
+}
+
+.lightbox-hint {
+  position: absolute;
+  bottom: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
 }

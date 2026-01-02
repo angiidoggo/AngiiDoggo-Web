@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngiiDoggo - Encargar Comisión</title>
+    <link rel="icon" href="img/LogoWeb.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/formulario.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="barra-navegacion">
+      <div class="contenedor-navegacion">
+        <a href="index.html" class="logo-nav">
+          <img
+            src="img/LogoWeb.png"
+            alt="Logo AngiiDoggo"
+            class="imagen-logo"
+          />
+        </a>
+        <ul class="menu-navegacion">
+          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+          <li>
+            <a href="comisiones.html" data-i18n="nav.comisiones">Comisiones</a>
+          </li>
+          <li><a href="Construccion.html" data-i18n="nav.tienda">Tienda</a></li>
+          <li><a href="Construccion.html" data-i18n="nav.tos">TOS</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="seccion-hero hero-formulario">
+      <div class="contenedor-hero">
+        <h1 class="titulo-principal" data-i18n="form.hero.titulo">
+          Encarga Tu Comisión
+        </h1>
+        <p class="subtitulo-principal" data-i18n="form.hero.subtitulo">
+          Completa el formulario y me pondré en contacto contigo
+        </p>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="seccion-formulario">
+      <div class="contenedor-formulario">
+        <!-- Guía y recomendaciones -->
+        <div class="guia-texto">
+          <h3><i class="fas fa-info-circle"></i> Antes de Continuar</h3>
+          <p>
+            ¿Prefieres un enfoque más personal? ¡Contáctame directamente! Estoy
+            disponible en
+            <a href="https://t.me/angiidoggo" target="_blank">Telegram</a>
+            o en
+            <a
+              href="https://discord.com/users/893928773211283526"
+              target="_blank"
+              >Discord</a
+            >.
+          </p>
+          <p>
+            <strong
+              >Te recomiendo revisar mi cola de trabajos antes de
+              encargar:</strong
+            ><br />
+            <a href="https://trello.com/b/2iZuDFfy/comms-panel" target="_blank"
+              ><i class="fab fa-trello"></i> Ver Cola de Comisiones en Trello</a
+            >
+          </p>
+          <p>
+            <strong>Por favor, ten en cuenta:</strong>
+          </p>
+          <ul class="lista-guia">
+            <li>
+              Consulta mis
+              <a href="Construccion.html">Términos de Servicio</a> antes de
+              encargar
+            </li>
+            <li>
+              Los precios están en EUR (Euros), moneda europea y española,
+              consulta los cambios de divisa antes de realizar el pago.
+            </li>
+            <li>
+              El pago se debe realizar al completo antes de empezar la comisión.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Caja del formulario -->
+        <div class="caja-formulario">
+          <h2 class="titulo-formulario">Formulario de Pedido</h2>
+
+          <form
+            id="formulario-comision"
+            name="comision"
+            method="POST"
+            data-netlify="true"
+            enctype="multipart/form-data"
+          >
+            <!-- Campo oculto para Netlify Forms -->
+            <input type="hidden" name="form-name" value="comision" />
+
+            <!-- Tipo de comisión -->
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">
+                ¿Qué tipo de comisión te gustaría?<span class="campo-requerido"
+                  >*</span
+                >
+              </label>
+              <select class="campo-select" name="tipo_comision" required>
+                <option value="">Seleccionar...</option>
+                <option value="Icon - $25 USD">Icon - $25 USD</option>
+                <option value="Halfbody - $35 USD">Halfbody - $35 USD</option>
+                <option value="Fullbody - $50 USD">Fullbody - $50 USD</option>
+                <option value="Reference Sheet - $80 USD">
+                  Reference Sheet - $80 USD
+                </option>
+                <option value="Pack de Stickers - $60 USD">
+                  Pack de Stickers - $60 USD
+                </option>
+              </select>
+            </div>
+
+            <!-- Subir archivo de referencia -->
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">
+                Sube tu reference sheet<span class="campo-requerido">*</span>
+              </label>
+              <input
+                type="file"
+                class="campo-input"
+                name="archivo_referencia"
+                accept="image/*"
+                required
+              />
+              <p class="texto-ayuda">
+                Formatos permitidos: JPG, PNG, GIF, WEBP (máx. 10MB)
+              </p>
+            </div>
+
+            <!-- Número de personajes -->
+            <div class="grupo-campo">
+              <label class="etiqueta-campo"> ¿Número de personajes? </label>
+              <select class="campo-select" name="num_personajes">
+                <option value="1 personaje">1 personaje</option>
+                <option value="2 personajes">2 personajes</option>
+                <option value="3 personajes">3 personajes</option>
+              </select>
+              <p class="texto-ayuda">
+                Ignora si estás encargando stickers de Telegram
+              </p>
+            </div>
+
+            <!-- Descripción de la pose -->
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">
+                Describe la pose, mood o idea<span class="campo-requerido"
+                  >*</span
+                >
+              </label>
+              <textarea
+                class="campo-textarea"
+                name="descripcion"
+                placeholder="Ej: Mi personaje sentado, sonriendo, con fondo de bosque nocturno..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- Método de contacto -->
+            <div class="grupo-campo">
+              <label class="etiqueta-campo">
+                ¿Cómo prefieres que te contacte?<span class="campo-requerido"
+                  >*</span
+                >
+              </label>
+              <select
+                class="campo-select"
+                name="metodo_contacto"
+                id="metodo_contacto"
+                required
+              >
+                <option value="">Seleccionar...</option>
+                <option value="Discord">Discord</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <!-- Campo condicional para Discord -->
+            <div class="grupo-campo campo-contacto-detalle" id="campo_discord">
+              <label class="etiqueta-campo">
+                Tu usuario de Discord<span class="campo-requerido">*</span>
+              </label>
+              <input
+                type="text"
+                class="campo-input"
+                name="discord_user"
+                placeholder="usuario#1234"
+              />
+            </div>
+
+            <!-- Campo condicional para Telegram -->
+            <div class="grupo-campo campo-contacto-detalle" id="campo_telegram">
+              <label class="etiqueta-campo">
+                Tu usuario de Telegram<span class="campo-requerido">*</span>
+              </label>
+              <input
+                type="text"
+                class="campo-input"
+                name="telegram_user"
+                placeholder="@usuario"
+              />
+            </div>
+
+            <!-- Campo condicional para Otro -->
+            <div class="grupo-campo campo-contacto-detalle" id="campo_otro">
+              <label class="etiqueta-campo">
+                ¿Dónde y cuál es tu usuario?<span class="campo-requerido"
+                  >*</span
+                >
+              </label>
+              <input
+                type="text"
+                class="campo-input"
+                name="otro_contacto"
+                placeholder="Ej: Twitter - @usuario"
+              />
+            </div>
+
+            <!-- NSFW Checkbox -->
+            <div class="grupo-campo">
+              <div class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  class="campo-checkbox"
+                  id="nsfw"
+                  name="nsfw"
+                  value="Si"
+                />
+                <div class="checkbox-contenido">
+                  <label for="nsfw" class="etiqueta-checkbox">
+                    <i class="fas fa-eye-slash icono-nsfw"></i>
+                    Contenido NSFW
+                  </label>
+                  <p class="descripcion-nsfw">
+                    Si tu comisión incluye contenido adulto, marca esta casilla.
+                    Se añadirá un cargo adicional de 5€ (EUR) o más según la
+                    complejidad del arte. Esto se discutira personalmente, no te
+                    preocupes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de envío -->
+            <button type="submit" class="boton-enviar" id="boton-enviar">
+              <i class="fas fa-paper-plane"></i>
+              Enviar Pedido
+            </button>
+
+            <!-- Mensaje de éxito -->
+            <div class="mensaje-exito" id="mensaje-exito">
+              <i
+                class="fas fa-check-circle"
+                style="font-size: 2rem; margin-bottom: 0.5rem"
+              ></i>
+              <p style="margin: 0; font-weight: 600">
+                ¡Pedido enviado con éxito!
+              </p>
+              <p style="margin: 0.5rem 0 0 0">
+                Me pondré en contacto contigo pronto. Revisa tu método de
+                contacto.
+              </p>
+            </div>
+          </form>
+
+          <p class="nota-privacidad">
+            Al enviar este formulario aceptas los
+            <a
+              href="Construccion.html"
+              style="
+                color: rgb(6, 136, 148);
+                text-decoration: none;
+                font-weight: 600;
+              "
+              >Términos de Servicio</a
+            >. Tus datos solo serán usados para procesar tu comisión.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pie-pagina">
+      <div class="contenedor-footer">
+        <div class="footer-principal">
+          <div class="footer-marca">
+            <img
+              src="img/LogoWeb.png"
+              alt="Logo AngiiDoggo"
+              class="footer-logo"
+            />
+            <p class="footer-descripcion">
+              Artista digital y streamer. Creando arte y compartiendo mi pasión
+              con la comunidad.
+            </p>
+          </div>
+          <div class="footer-columna">
+            <h4 class="titulo-footer">Navegación</h4>
+            <ul class="lista-footer">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="comisiones.html">Comisiones</a></li>
+              <li><a href="Construccion.html">Tienda</a></li>
+              <li><a href="Construccion.html">Términos de Servicio</a></li>
+            </ul>
+          </div>
+          <div class="footer-columna">
+            <h4 class="titulo-footer">Contacto</h4>
+            <ul class="lista-footer">
+              <li>
+                <a href="mailto:angiidoggo.business@gmail.com">
+                  <i class="fa-solid fa-envelope"></i>
+                  angiidoggo.business@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.com/users/893928773211283526"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/angiidoggo" target="_blank">
+                  <i class="fa-brands fa-telegram"></i> Telegram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-separador"></div>
+        <div class="footer-inferior">
+          <p class="footer-copyright">
+            © 2025 AngiiDoggo. Todos los derechos reservados.
+          </p>
+          <div class="footer-redes">
+            <a
+              href="https://twitch.com/angiidoggo"
+              target="_blank"
+              title="Twitch"
+            >
+              <i class="fa-brands fa-twitch"></i>
+            </a>
+            <a
+              href="https://twitter.com/angiidoggo"
+              target="_blank"
+              title="Twitter"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/angiidoggo/"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.tiktok.com/@angiidoggo"
+              target="_blank"
+              title="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mostrar/ocultar campos según método de contacto
+      const metodoContacto = document.getElementById("metodo_contacto");
+      const campoDiscord = document.getElementById("campo_discord");
+      const campoTelegram = document.getElementById("campo_telegram");
+      const campoOtro = document.getElementById("campo_otro");
+
+      metodoContacto.addEventListener("change", function () {
+        // Ocultar todos los campos
+        campoDiscord.classList.remove("visible");
+        campoTelegram.classList.remove("visible");
+        campoOtro.classList.remove("visible");
+
+        // Limpiar required de todos
+        document
+          .querySelector('[name="discord_user"]')
+          .removeAttribute("required");
+        document
+          .querySelector('[name="telegram_user"]')
+          .removeAttribute("required");
+        document
+          .querySelector('[name="otro_contacto"]')
+          .removeAttribute("required");
+
+        // Mostrar el campo correspondiente
+        if (this.value === "Discord") {
+          campoDiscord.classList.add("visible");
+          document
+            .querySelector('[name="discord_user"]')
+            .setAttribute("required", "required");
+        } else if (this.value === "Telegram") {
+          campoTelegram.classList.add("visible");
+          document
+            .querySelector('[name="telegram_user"]')
+            .setAttribute("required", "required");
+        } else if (this.value === "Otro") {
+          campoOtro.classList.add("visible");
+          document
+            .querySelector('[name="otro_contacto"]')
+            .setAttribute("required", "required");
+        }
+      });
+
+      // Manejar envío del formulario
+      const formulario = document.getElementById("formulario-comision");
+      const botonEnviar = document.getElementById("boton-enviar");
+      const mensajeExito = document.getElementById("mensaje-exito");
+
+      formulario.addEventListener("submit", function (e) {
+        // Netlify Forms manejará el envío automáticamente
+        // Solo mostramos feedback visual
+        botonEnviar.disabled = true;
+        botonEnviar.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+        // Después del envío exitoso (Netlify redirige por defecto)
+        // Si quieres mantener en la misma página, añade esto:
+        // e.preventDefault(); y usa fetch para enviar
+      });
+    </script>
+
+    <!-- Botón de idioma -->
+    <button class="boton-idioma" id="boton-idioma" title="Switch to English">
+      EN
+    </button>
+
+    <!-- Sistema de traducciones -->
+    <script src="js/traducciones.js"></script>
+  </body>
+</html>

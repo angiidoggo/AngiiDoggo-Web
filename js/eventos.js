@@ -1,13 +1,66 @@
 // js/eventos.js
 
-// Función para formatear fechas en español
+// Traducciones para eventos
+const traduccionesEventos = {
+  estados: {
+    es: {
+      asistiendo: "Asistiendo",
+      noAsistire: "No asistiré",
+      pendiente: "Pendiente",
+      na: "N/A",
+    },
+    en: {
+      asistiendo: "Attending",
+      noAsistire: "Not attending",
+      pendiente: "Pending",
+      na: "N/A",
+    },
+  },
+  participacion: {
+    es: {
+      vendiendo: "Vendiendo",
+      visitante: "Visitante",
+      expositor: "Expositor",
+    },
+    en: {
+      vendiendo: "Selling",
+      visitante: "Visitor",
+      expositor: "Exhibitor",
+    },
+  },
+  mensajes: {
+    es: {
+      sinEventos: "No hay eventos próximos por el momento.",
+      errorCargar:
+        "Error al cargar los eventos. Por favor, verifica la conexión.",
+      diasAsistencia: "Días de asistencia",
+    },
+    en: {
+      sinEventos: "No upcoming events at the moment.",
+      errorCargar: "Error loading events. Please check your connection.",
+      diasAsistencia: "Attendance days",
+    },
+  },
+};
+
+// Obtener idioma actual
+function getIdiomaEventos() {
+  return localStorage.getItem("idioma") || "es";
+}
+
+// Función para formatear fechas según el idioma
 function formatearFecha(fecha) {
+  const idioma = getIdiomaEventos();
+  const locale = idioma === "en" ? "en-US" : "es-ES";
   const opciones = { day: "numeric", month: "long", year: "numeric" };
-  return new Date(fecha).toLocaleDateString("es-ES", opciones);
+  return new Date(fecha).toLocaleDateString(locale, opciones);
 }
 
 // Función para formatear rango de fechas
 function formatearRangoFechas(fechaInicio, fechaFin) {
+  const idioma = getIdiomaEventos();
+  const locale = idioma === "en" ? "en-US" : "es-ES";
+
   if (!fechaFin) {
     // Solo un día
     return formatearFecha(fechaInicio);
@@ -24,9 +77,9 @@ function formatearRangoFechas(fechaInicio, fechaFin) {
     const opcionesInicio = { day: "numeric" };
     const opcionesFin = { day: "numeric", month: "long", year: "numeric" };
     return `${inicio.toLocaleDateString(
-      "es-ES",
+      locale,
       opcionesInicio
-    )} - ${fin.toLocaleDateString("es-ES", opcionesFin)}`;
+    )} - ${fin.toLocaleDateString(locale, opcionesFin)}`;
   }
 
   // Si son meses diferentes
@@ -37,41 +90,64 @@ function formatearRangoFechas(fechaInicio, fechaFin) {
 function obtenerEstadoAsistencia(estado) {
   if (!estado) return null;
 
+  const idioma = getIdiomaEventos();
+  const textos = traduccionesEventos.estados[idioma];
+
   const estadosConfig = {
     confirmada: {
       clase: "asistencia-confirmada",
       icono: "fa-solid fa-check",
-      texto: "Asistiendo",
+      texto: textos.asistiendo,
     },
     si: {
       clase: "asistencia-confirmada",
       icono: "fa-solid fa-check",
-      texto: "Asistiendo",
+      texto: textos.asistiendo,
     },
     no: {
       clase: "asistencia-no",
       icono: "fa-solid fa-xmark",
-      texto: "No asistiré",
+      texto: textos.noAsistire,
     },
     pendiente: {
       clase: "asistencia-pendiente",
       icono: "fa-solid fa-clock",
-      texto: "Pendiente",
+      texto: textos.pendiente,
     },
     "n-a": {
       clase: "asistencia-na",
       icono: "fa-solid fa-minus",
-      texto: "N/A",
+      texto: textos.na,
     },
     na: {
       clase: "asistencia-na",
       icono: "fa-solid fa-minus",
-      texto: "N/A",
+      texto: textos.na,
     },
   };
 
   const estadoNormalizado = estado.toLowerCase().trim();
   return estadosConfig[estadoNormalizado] || null;
+}
+
+// Función para traducir tipo de participación
+function traducirParticipacion(tipo) {
+  if (!tipo) return null;
+
+  const idioma = getIdiomaEventos();
+  const textos = traduccionesEventos.participacion[idioma];
+  const tipoNormalizado = tipo.toLowerCase().trim();
+
+  const traducciones = {
+    vendiendo: textos.vendiendo,
+    selling: textos.vendiendo,
+    visitante: textos.visitante,
+    visitor: textos.visitante,
+    expositor: textos.expositor,
+    exhibitor: textos.expositor,
+  };
+
+  return traducciones[tipoNormalizado] || tipo;
 }
 
 // Función para crear HTML de una tarjeta de evento
@@ -95,11 +171,12 @@ function crearTarjetaEvento(evento) {
 
   // Añadir etiqueta de tipo de participación si existe
   if (tipo_participacion) {
+    const tipoTraducido = traducirParticipacion(tipo_participacion);
     const claseEtiqueta =
       tipo_participacion.toLowerCase() === "vendiendo"
         ? "etiqueta-evento etiqueta-vending"
         : "etiqueta-evento";
-    etiquetasHTML += `<div class="${claseEtiqueta}">${tipo_participacion}</div>`;
+    etiquetasHTML += `<div class="${claseEtiqueta}">${tipoTraducido}</div>`;
   }
 
   // Añadir etiqueta de estado de asistencia si existe
@@ -118,11 +195,17 @@ function crearTarjetaEvento(evento) {
   // Añadir nombre del evento (siempre debe existir)
   html += `<h3 class="nombre-evento">${nombre}</h3>`;
 
-  // Añadir ubicación si existe
+  // Añadir ubicación si existe - con enlace a Google Maps
   if (ubicacion) {
+    const urlGoogleMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      ubicacion
+    )}`;
     html += `
       <p class="ubicacion-evento">
-        <i class="fa-solid fa-location-dot"></i> ${ubicacion}
+        <a href="${urlGoogleMaps}" target="_blank" rel="noopener noreferrer" class="enlace-ubicacion" title="Ver en Google Maps">
+          <i class="fa-solid fa-location-dot"></i> ${ubicacion}
+          <i class="fa-solid fa-arrow-up-right-from-square icono-externo"></i>
+        </a>
       </p>
     `;
   }
@@ -186,9 +269,10 @@ async function cargarEventos() {
 
     // Si no hay eventos
     if (data.eventos.length === 0) {
+      const idiomaActual = getIdiomaEventos();
       contenedorEventos.innerHTML = `
         <p class="texto-centrado" style="color: #8a8a8a; font-style: italic;">
-          No hay eventos próximos por el momento.
+          ${traduccionesEventos.mensajes[idiomaActual].sinEventos}
         </p>
       `;
       if (textoExtra) textoExtra.style.display = "none";
@@ -204,9 +288,10 @@ async function cargarEventos() {
     console.log(`✅ ${data.eventos.length} eventos cargados correctamente`);
   } catch (error) {
     console.error("❌ Error al cargar eventos:", error);
+    const idiomaActual = getIdiomaEventos();
     contenedorEventos.innerHTML = `
       <p class="texto-centrado" style="color: #e74c3c;">
-        ⚠️ Error al cargar los eventos. Por favor, verifica la conexión.
+        ⚠️ ${traduccionesEventos.mensajes[idiomaActual].errorCargar}
       </p>
     `;
   }
@@ -218,3 +303,9 @@ if (document.readyState === "loading") {
 } else {
   cargarEventos();
 }
+
+// Recargar eventos cuando cambie el idioma
+window.addEventListener("idiomaChanged", () => {
+  console.log("🌐 Idioma cambiado, recargando eventos...");
+  cargarEventos();
+});
