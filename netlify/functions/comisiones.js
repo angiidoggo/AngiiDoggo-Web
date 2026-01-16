@@ -14,7 +14,12 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const sql = neon(process.env.NETLIFY_DATABASE_URL);
+    const connectionString =
+      process.env.NETLIFY_DATABASE_URL || process.env.DATABASE_URL;
+    if (!connectionString) {
+      throw new Error("DATABASE_URL no configurada");
+    }
+    const sql = neon(connectionString);
 
     const comisiones = await sql`
       SELECT 

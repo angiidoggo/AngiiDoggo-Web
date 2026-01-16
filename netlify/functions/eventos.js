@@ -17,7 +17,12 @@ exports.handler = async (event, context) => {
 
   try {
     // Conexión a Neon
-    const sql = neon(process.env.NETLIFY_DATABASE_URL);
+    const connectionString =
+      process.env.NETLIFY_DATABASE_URL || process.env.DATABASE_URL;
+    if (!connectionString) {
+      throw new Error("DATABASE_URL no configurada");
+    }
+    const sql = neon(connectionString);
 
     // Consulta para obtener eventos activos ordenados
     const eventos = await sql`

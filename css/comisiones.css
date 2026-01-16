@@ -2,7 +2,8 @@
 
 /* HERO COMISIONES */
 .hero-comisiones {
-  background: linear-gradient(135deg, rgba(97, 89, 114, 0.4)),
+  background:
+    linear-gradient(135deg, rgba(97, 89, 114, 0.4)),
     url("../img/Banner.png") center/cover no-repeat;
 }
 
@@ -20,18 +21,44 @@
 }
 
 .tarjeta-comision {
-  background: white;
-  border-radius: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 136, 148, 0.05) 0%,
+    rgba(75, 212, 224, 0.08) 100%
+  );
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid rgba(6, 136, 148, 0.3);
+  box-shadow: 0 4px 15px rgba(6, 136, 148, 0.15);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    border-color 0.3s;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.tarjeta-comision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    rgb(6, 136, 148) 0%,
+    rgba(75, 212, 224, 0.95) 50%,
+    rgb(6, 136, 148) 100%
+  );
+  border-radius: 20px 20px 0 0;
 }
 
 .tarjeta-comision:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(6, 136, 148, 0.2);
+  box-shadow: 0 8px 30px rgba(6, 136, 148, 0.25);
+  border-color: rgba(6, 136, 148, 0.5);
 }
 
 .imagen-comision {
@@ -105,7 +132,9 @@
   font-size: 2.5rem;
   color: white;
   cursor: pointer;
-  transition: transform 0.3s, color 0.3s;
+  transition:
+    transform 0.3s,
+    color 0.3s;
   z-index: 10000;
 }
 
@@ -247,7 +276,9 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   box-shadow: 0 4px 15px rgba(200, 184, 232, 0.4);
 }
 
