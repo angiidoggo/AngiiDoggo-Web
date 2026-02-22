@@ -31,7 +31,6 @@ exports.handler = async (event, context) => {
         fecha_fin,
         hora_evento,
         dias_asistencia,
-        tipo_participacion,
         estado_asistencia
       FROM eventos
       WHERE activo = true

@@ -1,5 +1,5 @@
 /* =============================================
-   AngiiDoggo — main.js  v8
+   AngiiDoggo — main.js
 ============================================= */
 
 /* ── PARTICULAS de fondo ── */
@@ -51,10 +51,14 @@
   actualizar();
 })();
 
+/* ── Convierte cualquier formato de fecha a "YYYY-MM-DD" ── */
+function limpiarFecha(fecha) {
+  if (!fecha) return null;
+  return String(fecha).substring(0, 10);
+}
+
 /* ══════════════════════════════════════════
    CARGADOR DE EVENTOS
-   Usa /.netlify/functions/eventos
-   igual que la web antigua.
 ══════════════════════════════════════════ */
 async function cargarEventos() {
   const contenedor = document.getElementById("lista-eventos");
@@ -62,11 +66,9 @@ async function cargarEventos() {
 
   try {
     const respuesta = await fetch("/.netlify/functions/eventos");
-
     if (!respuesta.ok) throw new Error("HTTP " + respuesta.status);
 
     const datos = await respuesta.json();
-
     if (!datos.success) throw new Error(datos.error || "Error en la API");
 
     if (!datos.eventos || datos.eventos.length === 0) {
@@ -84,19 +86,13 @@ async function cargarEventos() {
 }
 
 function dibujarEvento(evento) {
-  const {
-    nombre,
-    ubicacion,
-    fecha_inicio,
-    fecha_fin,
-    hora_evento,
-    dias_asistencia,
-  } = evento;
+  const { nombre, ubicacion, hora_evento, dias_asistencia, estado_asistencia } = evento;
+
+  const fecha_inicio = limpiarFecha(evento.fecha_inicio);
+  const fecha_fin    = limpiarFecha(evento.fecha_fin);
 
   /* ── Bloque de fecha ── */
-  let mesTexto = "",
-    diaTexto = "?",
-    rangoTexto = "";
+  let mesTexto = "", diaTexto = "?", rangoTexto = "";
 
   if (fecha_inicio) {
     const d1 = new Date(fecha_inicio + "T00:00");
@@ -122,34 +118,33 @@ function dibujarEvento(evento) {
   }
 
   const bloqueFecha = fecha_inicio
-    ? `
-    <div class="fecha-evento">
-      <div class="mes-fecha-evento">${mesTexto}</div>
-      <div class="dia-fecha-evento">${diaTexto}</div>
-      ${rangoTexto ? `<div class="rango-fecha-evento">${rangoTexto}</div>` : ""}
-    </div>`
+    ? `<div class="fecha-evento">
+        <div class="mes-fecha-evento">${mesTexto}</div>
+        <div class="dia-fecha-evento">${diaTexto}</div>
+        ${rangoTexto ? `<div class="rango-fecha-evento">${rangoTexto}</div>` : ""}
+       </div>`
+    : "";
+
+  /* ── Estado de asistencia ── */
+  const badgeEstado = estado_asistencia
+    ? `<div class="estado-asistencia">${estado_asistencia}</div>`
     : "";
 
   /* ── Líneas de detalles ── */
   const detalles = [];
   if (ubicacion)
-    detalles.push(
-      `<div class="detalle-evento"><span class="ie-icono">📍</span>${ubicacion}</div>`,
-    );
+    detalles.push(`<div class="detalle-evento"><span class="ie-icono">📍</span>${ubicacion}</div>`);
   if (hora_evento)
-    detalles.push(
-      `<div class="detalle-evento"><span class="ie-icono">🕐</span>${hora_evento}</div>`,
-    );
+    detalles.push(`<div class="detalle-evento"><span class="ie-icono">🕐</span>${hora_evento}</div>`);
   if (dias_asistencia)
-    detalles.push(
-      `<div class="detalle-evento"><span class="ie-icono">📆</span>${dias_asistencia}</div>`,
-    );
+    detalles.push(`<div class="detalle-evento"><span class="ie-icono">📆</span>${dias_asistencia}</div>`);
 
   return `
     <div class="item-evento">
       ${bloqueFecha}
       <div class="info-evento">
         <div class="nombre-evento">${nombre}</div>
+        ${badgeEstado}
         ${detalles.length ? `<div class="detalles-evento">${detalles.join("")}</div>` : ""}
       </div>
     </div>`;

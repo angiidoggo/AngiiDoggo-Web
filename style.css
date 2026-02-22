@@ -78,16 +78,16 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 52px 16px 80px;
+  padding: 60px 16px 100px;
   min-height: 100vh;
 }
 
 .columna {
   width: 100%;
-  max-width: 580px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 /* ══════════════════════════════
@@ -97,15 +97,15 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 20px 0 12px;
+  gap: 18px;
+  padding: 24px 0 16px;
   text-align: center;
 }
 
 .anillo-avatar {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,15 +165,15 @@ body::before {
 .avatar-perfil {
   position: relative;
   z-index: 2;
-  width: 130px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
 }
 
 .nombre-perfil {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.5px;
@@ -185,7 +185,7 @@ body::before {
 }
 
 .subtitulo-perfil {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--soft);
   font-weight: 400;
 }
@@ -196,15 +196,15 @@ body::before {
 .boton-enlace {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 20px 26px;
+  gap: 20px;
+  padding: 22px 28px;
   background: var(--surface2);
   border: 1.5px solid var(--border);
   border-top-color: var(--border-lt);
   border-left-color: var(--border-lt);
   text-decoration: none;
   color: var(--text);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   transition:
     background 0.2s,
@@ -236,15 +236,15 @@ body::before {
 }
 
 .boton-enlace .be-icono {
-  font-size: 1.5rem;
-  width: 34px;
+  font-size: 1.7rem;
+  width: 38px;
   text-align: center;
   flex-shrink: 0;
   color: var(--accent);
 }
 
 .boton-enlace .be-etiqueta {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-family: "JetBrains Mono", monospace;
   color: var(--muted);
   letter-spacing: 1.2px;
@@ -254,7 +254,7 @@ body::before {
 }
 
 .boton-enlace .be-valor {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--white);
 }
@@ -262,7 +262,7 @@ body::before {
 .boton-enlace .be-flecha {
   margin-left: auto;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   transition:
     color 0.2s,
     transform 0.2s;
@@ -360,25 +360,31 @@ body::before {
 .columna > *:nth-child(10) {
   animation-delay: 0.36s;
 }
+.columna > *:nth-child(11) {
+  animation-delay: 0.4s;
+}
+.columna > *:nth-child(12) {
+  animation-delay: 0.44s;
+}
 
 /* titlebar */
 .barra-titulo {
   background: var(--titlebar);
-  height: 32px;
+  height: 36px;
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  gap: 7px;
+  padding: 0 12px;
+  gap: 8px;
   user-select: none;
 }
 
 .icono-titulo {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .texto-titulo {
   font-family: "Silkscreen", monospace;
-  font-size: 10px;
+  font-size: 11px;
   color: #fff;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
   letter-spacing: 0.5px;
@@ -392,12 +398,12 @@ body::before {
 }
 
 .bt {
-  width: 18px;
-  height: 15px;
+  width: 20px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 9px;
+  font-size: 10px;
   font-family: "Silkscreen", monospace;
   color: #ccc;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -411,33 +417,33 @@ body::before {
 }
 
 .cuerpo-ventana {
-  padding: 30px 30px 34px;
+  padding: 32px 32px 36px;
 }
 
 /* status bar */
 .barra-estado {
-  height: 28px;
+  height: 30px;
   background: var(--surface2);
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
 }
 
 .info-estado {
-  padding: 0 14px;
+  padding: 0 16px;
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   border-right: 1px solid var(--border);
 }
 
 .punto {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--accent3);
   animation: pulso 2s ease-in-out infinite;
@@ -456,12 +462,12 @@ body::before {
 .cabecera-seccion {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 14px;
+  margin-bottom: 26px;
 }
 
 .titulo-seccion {
-  font-size: 1.3rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--white);
   white-space: nowrap;
@@ -472,7 +478,7 @@ body::before {
   font-size: 0.8em;
   color: var(--accent);
   font-weight: 400;
-  margin-right: 7px;
+  margin-right: 8px;
 }
 
 .linea-seccion {
@@ -487,12 +493,12 @@ body::before {
 .cuerpo-sobremi {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .cuerpo-sobremi p {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.2rem;
+  line-height: 1.85;
   color: var(--soft);
 }
 
@@ -510,8 +516,8 @@ body::before {
 
 .etiqueta {
   font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
-  padding: 7px 16px;
+  font-size: 14px;
+  padding: 8px 18px;
   border: 1.5px solid var(--border);
   background: var(--surface2);
   color: var(--soft);
@@ -543,7 +549,6 @@ body::before {
   background: rgba(167, 139, 250, 0.09);
 }
 
-/* Spain chip — borde con colores de la bandera */
 .etiqueta.spain {
   background: var(--surface2);
   color: var(--white);
@@ -560,16 +565,16 @@ body::before {
 .lista-eventos {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .item-evento {
   background: var(--surface2);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 18px 20px;
+  border-radius: 8px;
+  padding: 20px 22px;
   display: flex;
-  gap: 20px;
+  gap: 22px;
   align-items: center;
   transition:
     border-color 0.2s,
@@ -584,13 +589,13 @@ body::before {
 /* date block */
 .fecha-evento {
   flex-shrink: 0;
-  width: 62px;
+  width: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -599,27 +604,27 @@ body::before {
   background: var(--border-lt);
   text-align: center;
   font-family: "Silkscreen", monospace;
-  font-size: 9px;
+  font-size: 11px;
   color: #fff;
-  padding: 4px 0;
+  padding: 5px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .dia-fecha-evento {
   font-family: "Outfit", sans-serif;
-  font-size: 1.9rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--white);
   line-height: 1;
-  padding: 9px 0 5px;
+  padding: 10px 0 6px;
 }
 
 .rango-fecha-evento {
   font-family: "JetBrains Mono", monospace;
-  font-size: 8.5px;
+  font-size: 10px;
   color: var(--muted);
-  padding: 0 4px 6px;
+  padding: 0 4px 8px;
   text-align: center;
   line-height: 1.4;
 }
@@ -634,38 +639,52 @@ body::before {
 }
 
 .nombre-evento {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--white);
   line-height: 1.2;
 }
 
+/* estado asistencia */
+.estado-asistencia {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 14px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-lt);
+  color: var(--accent);
+  background: rgba(102, 136, 255, 0.08);
+}
+
 .detalles-evento {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .detalle-evento {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   color: var(--soft);
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
 .detalle-evento .ie-icono {
-  font-size: 0.85rem;
+  font-size: 1rem;
   flex-shrink: 0;
   opacity: 0.7;
 }
 
 .evento-vacio {
   font-family: "JetBrains Mono", monospace;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   text-align: center;
-  padding: 28px 0;
+  padding: 32px 0;
 }
 
 /* ══════════════════════════════
@@ -673,10 +692,10 @@ body::before {
 ══════════════════════════════ */
 .pie-pagina {
   font-family: "JetBrains Mono", monospace;
-  font-size: 17px;
+  font-size: 13px;
   color: var(--muted);
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   letter-spacing: 0.5px;
 }
 
@@ -685,18 +704,65 @@ body::before {
 ══════════════════════════════ */
 @media (max-width: 480px) {
   .pagina {
-    padding: 36px 12px 60px;
+    padding: 40px 12px 70px;
   }
   .cuerpo-ventana {
-    padding: 22px 18px 24px;
+    padding: 24px 20px 28px;
   }
   .nombre-perfil {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
   .dia-fecha-evento {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .boton-enlace {
-    padding: 17px 18px;
+    padding: 18px 18px;
+    font-size: 1.1rem;
   }
+  .fecha-evento {
+    width: 68px;
+  }
+}
+
+/* ── OVERRIDE: evento más grande ── */
+.item-evento {
+  padding: 24px 26px;
+  gap: 26px;
+  align-items: center;
+}
+
+.fecha-evento {
+  width: 96px;
+  border-radius: 10px;
+}
+
+.mes-fecha-evento {
+  font-size: 13px;
+  padding: 6px 0;
+  letter-spacing: 1px;
+}
+
+.dia-fecha-evento {
+  font-size: 3.2rem;
+  padding: 12px 0 6px;
+}
+
+.rango-fecha-evento {
+  font-size: 12px;
+  padding: 0 6px 10px;
+  color: var(--soft);
+  font-weight: 600;
+}
+
+.nombre-evento {
+  font-size: 1.5rem;
+}
+
+.estado-asistencia {
+  font-size: 0.88rem;
+  padding: 5px 16px;
+}
+
+.detalle-evento {
+  font-size: 1.1rem;
 }
