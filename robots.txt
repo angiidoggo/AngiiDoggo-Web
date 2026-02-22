@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://angiidoggo.es/sitemap.xml
