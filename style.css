@@ -46,7 +46,6 @@ body {
   overflow-x: hidden;
 }
 
-/* scanlines */
 body::before {
   content: "";
   position: fixed;
@@ -69,9 +68,6 @@ body::before {
   pointer-events: none;
 }
 
-/* ══════════════════════════════
-   LAYOUT
-══════════════════════════════ */
 .pagina {
   position: relative;
   z-index: 1;
@@ -90,9 +86,6 @@ body::before {
   gap: 16px;
 }
 
-/* ══════════════════════════════
-   PROFILE HEADER
-══════════════════════════════ */
 .cabecera-perfil {
   display: flex;
   flex-direction: column;
@@ -190,9 +183,6 @@ body::before {
   font-weight: 400;
 }
 
-/* ══════════════════════════════
-   LINKTREE BUTTONS
-══════════════════════════════ */
 .boton-enlace {
   display: flex;
   align-items: center;
@@ -300,9 +290,6 @@ body::before {
   background: var(--accent2);
 }
 
-/* ══════════════════════════════
-   WIN CARD
-══════════════════════════════ */
 .ventana {
   width: 100%;
   background: var(--surface);
@@ -367,7 +354,6 @@ body::before {
   animation-delay: 0.44s;
 }
 
-/* titlebar */
 .barra-titulo {
   background: var(--titlebar);
   height: 36px;
@@ -420,7 +406,6 @@ body::before {
   padding: 32px 32px 36px;
 }
 
-/* status bar */
 .barra-estado {
   height: 30px;
   background: var(--surface2);
@@ -458,7 +443,7 @@ body::before {
   }
 }
 
-/* section header */
+/* Cabecera de sección */
 .cabecera-seccion {
   display: flex;
   align-items: center;
@@ -487,9 +472,7 @@ body::before {
   background: linear-gradient(90deg, var(--border), transparent);
 }
 
-/* ══════════════════════════════
-   ABOUT
-══════════════════════════════ */
+/* Sobre mi */
 .cuerpo-sobremi {
   display: flex;
   flex-direction: column;
@@ -559,9 +542,7 @@ body::before {
   border-right: 4px solid #f1bf00;
 }
 
-/* ══════════════════════════════
-   EVENTS
-══════════════════════════════ */
+/* Eventos */
 .lista-eventos {
   display: flex;
   flex-direction: column;
@@ -586,7 +567,6 @@ body::before {
   background: var(--surface3);
 }
 
-/* date block */
 .fecha-evento {
   flex-shrink: 0;
   width: 80px;
@@ -629,7 +609,7 @@ body::before {
   line-height: 1.4;
 }
 
-/* event info */
+/* Info de los eventos */
 .info-evento {
   flex: 1;
   display: flex;
@@ -645,7 +625,7 @@ body::before {
   line-height: 1.2;
 }
 
-/* estado asistencia */
+/* Estado de asistencia */
 .estado-asistencia {
   display: inline-block;
   font-family: "JetBrains Mono", monospace;
@@ -687,9 +667,7 @@ body::before {
   padding: 32px 0;
 }
 
-/* ══════════════════════════════
-   FOOTER
-══════════════════════════════ */
+/* Footer */
 .pie-pagina {
   font-family: "JetBrains Mono", monospace;
   font-size: 13px;
@@ -699,9 +677,7 @@ body::before {
   letter-spacing: 0.5px;
 }
 
-/* ══════════════════════════════
-   RESPONSIVE
-══════════════════════════════ */
+/* Responsive */
 @media (max-width: 480px) {
   .pagina {
     padding: 40px 12px 70px;
@@ -724,7 +700,6 @@ body::before {
   }
 }
 
-/* ── OVERRIDE: evento más grande ── */
 .item-evento {
   padding: 24px 26px;
   gap: 26px;

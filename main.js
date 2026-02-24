@@ -1,32 +1,30 @@
-/* =============================================
-   AngiiDoggo — main.js
-============================================= */
-
-/* ── PARTICULAS de fondo ── */
+/* Funcion para las particulas del fondo */
 (function () {
-  const lienzo = document.getElementById("lienzo-fondo");
+  const lienzo = document.getElementById("lienzo-fondo"); // Lienzo del fondo
   if (!lienzo) return;
-  const contexto = lienzo.getContext("2d");
+  const contexto = lienzo.getContext("2d"); // Contexto del lienzo
   let ancho, alto, particulas;
-  const PALETA = ["#6688ff", "#ff6eb4", "#4ddd72", "#ffc85a", "#a78bfa"];
+  const PALETA = ["#6688ff", "#ff6eb4", "#4ddd72", "#ffc85a", "#a78bfa"]; // Paleta de colores para las partículas
 
+  /* Funcion para redimensionar el lienzo */
   function redimensionar() {
     ancho = lienzo.width = window.innerWidth;
     alto = lienzo.height = window.innerHeight;
     particulas = Array.from(
-      { length: Math.round((ancho * alto) / 20000) },
+      { length: Math.round((ancho * alto) / 20000) }, // Cantidad de partículas
       () => ({
-        x: Math.random() * ancho,
-        y: Math.random() * alto,
-        r: Math.random() * 1.6 + 0.3,
-        vx: (Math.random() - 0.5) * 0.2,
-        vy: (Math.random() - 0.5) * 0.2,
-        c: PALETA[Math.floor(Math.random() * PALETA.length)],
-        a: Math.random() * 0.4 + 0.1,
+        x: Math.random() * ancho, // Posición inicial en el eje X
+        y: Math.random() * alto, // Posición inicial en el eje Y
+        r: Math.random() * 1.6 + 0.3, // Tamaño aleatorio
+        vx: (Math.random() - 0.5) * 0.2, // Velocidad en el eje X
+        vy: (Math.random() - 0.5) * 0.2, // Velocidad en el eje Y
+        c: PALETA[Math.floor(Math.random() * PALETA.length)], // Color aleatorio
+        a: Math.random() * 0.4 + 0.1, // Opacidad aleatoria
       }),
     );
   }
 
+  /* Funcion para actualizar las particulas */
   function actualizar() {
     contexto.clearRect(0, 0, ancho, alto);
     for (const p of particulas) {
@@ -37,13 +35,13 @@
       contexto.fill();
       p.x += p.vx;
       p.y += p.vy;
-      if (p.x < 0) p.x = ancho;
-      if (p.x > ancho) p.x = 0;
-      if (p.y < 0) p.y = alto;
-      if (p.y > alto) p.y = 0;
+      if (p.x < 0) p.x = ancho; // Si la partícula sale por la izquierda, aparece por la derecha.
+      if (p.x > ancho) p.x = 0; // Si la partícula sale por la derecha, aparece por la izquierda.
+      if (p.y < 0) p.y = alto; // Si la partícula sale por arriba, aparece por abajo.
+      if (p.y > alto) p.y = 0; // Si la partícula sale por abajo, aparece por arriba.
     }
-    contexto.globalAlpha = 1;
-    requestAnimationFrame(actualizar);
+    contexto.globalAlpha = 1; // Opacidad de las partículas
+    requestAnimationFrame(actualizar); // Actualiza las partículas
   }
 
   redimensionar();
@@ -51,15 +49,13 @@
   actualizar();
 })();
 
-/* ── Convierte cualquier formato de fecha a "YYYY-MM-DD" ── */
+/* Funcion para limpiar la fecha */
 function limpiarFecha(fecha) {
   if (!fecha) return null;
   return String(fecha).substring(0, 10);
 }
 
-/* ══════════════════════════════════════════
-   CARGADOR DE EVENTOS
-══════════════════════════════════════════ */
+/* Funcion para cargar los eventos */
 async function cargarEventos() {
   const contenedor = document.getElementById("lista-eventos");
   if (!contenedor) return;
@@ -85,14 +81,18 @@ async function cargarEventos() {
   }
 }
 
+/* Funcion para dibujar los eventos */
 function dibujarEvento(evento) {
-  const { nombre, ubicacion, hora_evento, dias_asistencia, estado_asistencia } = evento;
+  const { nombre, ubicacion, hora_evento, dias_asistencia, estado_asistencia } =
+    evento;
 
   const fecha_inicio = limpiarFecha(evento.fecha_inicio);
-  const fecha_fin    = limpiarFecha(evento.fecha_fin);
+  const fecha_fin = limpiarFecha(evento.fecha_fin);
 
-  /* ── Bloque de fecha ── */
-  let mesTexto = "", diaTexto = "?", rangoTexto = "";
+  /* Bloque de fecha */
+  let mesTexto = "",
+    diaTexto = "?",
+    rangoTexto = "";
 
   if (fecha_inicio) {
     const d1 = new Date(fecha_inicio + "T00:00");
@@ -125,19 +125,25 @@ function dibujarEvento(evento) {
        </div>`
     : "";
 
-  /* ── Estado de asistencia ── */
+  /* Estado de asistencia */
   const badgeEstado = estado_asistencia
     ? `<div class="estado-asistencia">${estado_asistencia}</div>`
     : "";
 
-  /* ── Líneas de detalles ── */
+  /* Líneas de detalles */
   const detalles = [];
   if (ubicacion)
-    detalles.push(`<div class="detalle-evento"><span class="ie-icono">📍</span>${ubicacion}</div>`);
+    detalles.push(
+      `<div class="detalle-evento"><span class="ie-icono">📍</span>${ubicacion}</div>`,
+    );
   if (hora_evento)
-    detalles.push(`<div class="detalle-evento"><span class="ie-icono">🕐</span>${hora_evento}</div>`);
+    detalles.push(
+      `<div class="detalle-evento"><span class="ie-icono">🕐</span>${hora_evento}</div>`,
+    );
   if (dias_asistencia)
-    detalles.push(`<div class="detalle-evento"><span class="ie-icono">📆</span>${dias_asistencia}</div>`);
+    detalles.push(
+      `<div class="detalle-evento"><span class="ie-icono">📆</span>${dias_asistencia}</div>`,
+    );
 
   return `
     <div class="item-evento">
@@ -150,4 +156,8 @@ function dibujarEvento(evento) {
     </div>`;
 }
 
+/* Cargar eventos */
 document.addEventListener("DOMContentLoaded", cargarEventos);
+
+/* Desactivar el click derecho */
+document.addEventListener("contextmenu", (event) => event.preventDefault());
